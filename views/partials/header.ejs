@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Climate Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="/css/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <nav class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="/" class="text-xl font-bold">🌎 Climate Solutions</a>
+      <ul class="flex space-x-4">
+        <li>
+          <a href="/" class="<%= page === '/' ? 'font-bold text-blue-600' : '' %>">Home</a>
+        </li>
+        <li>
+          <a href="/about" class="<%= page === '/about' ? 'font-bold text-blue-600' : '' %>">About</a>
+        </li>
+        <li>
+          <a href="/solutions/projects" class="<%= page === '/solutions/projects' ? 'font-bold text-blue-600' : '' %>">Projects</a>
+        </li>
+
+        <% if (session.user) { %>
+          <li>
+            <a href="/solutions/addProject" class="<%= page === '/solutions/addProject' ? 'font-bold text-blue-600' : '' %>">Add Project</a>
+          </li>
+          <li>
+            <a href="/userHistory" class="<%= page === '/userHistory' ? 'font-bold text-blue-600' : '' %>">User History</a>
+          </li>
+          <li>
+            <span class="text-sm text-gray-500">Hi, <%= session.user.userName %></span>
+            <a href="/logout" class="text-red-500">Logout</a>
+          </li>
+        <% } else { %>
+          <li>
+            <a href="/login" class="<%= page === '/login' ? 'font-bold text-blue-600' : '' %>">Login</a>
+          </li>
+          <li>
+            <a href="/register" class="<%= page === '/register' ? 'font-bold text-blue-600' : '' %>">Register</a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto py-6 px-4">

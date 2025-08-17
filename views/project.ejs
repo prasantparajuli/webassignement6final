@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= project.title %> - Project Details</title>
+  <link href="/css/main.css" rel="stylesheet">
+</head>
+<body class="bg-base-200">
+
+  <%- include('partials/navbar', { page: '' }) %>
+
+  <section class="hero bg-base-300 py-10 text-center">
+    <div class="hero-content flex-col">
+      <h1 class="text-4xl font-bold"><%= project.title %></h1>
+      <p class="py-2 text-lg text-gray-500">
+        <%= project.Sector ? project.Sector.sector_name : 'Unknown Sector' %>
+      </p>
+      <img src="<%= project.feature_img_url %>" alt="<%= project.title %> image" class="max-w-xl rounded-lg mt-4">
+      <a href="/solutions/editProject/<%= project.id %>" class="btn btn-outline btn-success mt-4">
+  Edit Project
+</a>
+
+    </div>
+  </section>
+
+  <section class="p-6 max-w-3xl mx-auto">
+    <h2 class="text-xl font-semibold mb-2">Intro</h2>
+    <p class="mb-4"><%= project.intro_short %></p>
+
+    <h2 class="text-xl font-semibold mb-2">Impact</h2>
+    <p class="mb-4"><%= project.impact %></p>
+
+    <h2 class="text-xl font-semibold mb-2">Source</h2>
+    <a href="<%= project.original_source_url %>" class="text-blue-600 underline" target="_blank">
+      View Original Source
+    </a>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Project</title>
+  <link href="/css/main.css" rel="stylesheet">
+</head>
+<body class="bg-base-200">
+
+  <%- include('partials/navbar', { page: '/solutions/addProject' }) %>
+
+  <section class="container mx-auto py-10 px-4">
+    <h1 class="text-3xl font-bold mb-6 text-center">Add Project</h1>
+
+    <form action="/solutions/addProject" method="POST" class="space-y-6 max-w-2xl mx-auto bg-base-100 p-6 rounded-lg shadow-md">
+
+      <input type="text" name="title" placeholder="Project Title" required class="input input-bordered w-full" />
+
+      <input type="url" name="feature_img_url" placeholder="Feature Image URL" required class="input input-bordered w-full" />
+
+      <select name="sector_id" required class="select select-bordered w-full">
+        <% sectors.forEach(sector => { %>
+          <option value="<%= sector.id %>"><%= sector.sector_name %></option>
+        <% }) %>
+      </select>
+
+      <textarea name="intro_short" placeholder="Intro Short" required class="textarea textarea-bordered w-full"></textarea>
+
+      <textarea name="summary_short" placeholder="Summary Short" required class="textarea textarea-bordered w-full"></textarea>
+
+      <textarea name="impact" placeholder="Impact" required class="textarea textarea-bordered w-full"></textarea>
+
+      <input type="url" name="original_source_url" placeholder="Original Source URL" required class="input input-bordered w-full" />
+
+      <button type="submit" class="btn btn-primary w-full">Submit</button>
+    </form>
+  </section>
+
+</body>
+</html>

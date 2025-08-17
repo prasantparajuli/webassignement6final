@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects</title>
+  <link href="/css/main.css" rel="stylesheet">
+</head>
+<body class="bg-base-200">
+
+  <%- include('partials/navbar', { page: '/solutions/projects' }) %>
+
+  <section class="hero bg-base-300 py-10 text-center">
+    <div class="hero-content flex-col">
+      <h1 class="text-4xl font-bold">All Projects</h1>
+      <p class="py-2">Browse climate solution projects across sectors</p>
+      <div class="flex flex-wrap gap-2 justify-center mt-4">
+        <a class="btn" href="/solutions/projects?sector=Industry">Industry</a>
+        <a class="btn" href="/solutions/projects?sector=Transportation">Transportation</a>
+        <a class="btn" href="/solutions/projects?sector=Land Sinks">Land Sinks</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-4">
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Sector</th>
+            <th>Summary</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% projects.forEach(p => { %>
+            <tr>
+              <td><%= p.title %></td>
+              <td>
+                <a class="btn btn-sm" href="/solutions/projects?sector=<%= encodeURIComponent(p.Sector?.sector_name || '') %>">
+                  <%= p.Sector?.sector_name || 'N/A' %>
+                </a>
+              </td>
+              <td><%= p.summary_short %></td>
+              <td class="flex flex-wrap gap-2">
+                <a class="btn btn-sm btn-info" href="/solutions/projects/<%= p.id %>">Details</a>
+                <a class="btn btn-sm btn-success" href="/solutions/editProject/<%= p.id %>">Edit</a>
+                <a class="btn btn-sm btn-error" href="/solutions/deleteProject/<%= p.id %>">Delete</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</body>
+</html>

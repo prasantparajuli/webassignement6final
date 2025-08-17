@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Climate Solutions</title>
+  <link href="/css/main.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <%- include('partials/navbar', { page: '/' }) %>
+
+  <!-- Hero Section -->
+  <section class="bg-green-100 text-center py-16 px-6 shadow-md">
+    <h1 class="text-4xl md:text-5xl font-bold text-green-800">Explore Climate Projects</h1>
+    <p class="text-gray-700 mt-4 mb-6 text-lg">Learn how different sectors are helping combat climate change with innovative solutions.</p>
+    <a href="/solutions/projects" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded transition duration-300">
+      View All Projects
+    </a>
+  </section>
+
+  <!-- Project Cards Section -->
+  <main class="container mx-auto py-10 px-4">
+    <div class="grid gap-8 grid-cols-1 md:grid-cols-3">
+      <!-- Card 1 -->
+      <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <img src="https://drawdown.org/sites/default/files/solutions/solution_farmlandrestoration01.jpg" alt="Abandoned Farmland Restoration" class="rounded-t-lg object-cover h-48 w-full">
+        <div class="p-5">
+          <h2 class="text-xl font-bold text-gray-800">Abandoned Farmland Restoration</h2>
+          <p class="text-gray-600 mt-2">Restoring degraded farmland boosts productivity and traps carbon effectively.</p>
+          <div class="mt-4 text-right">
+            <a href="/solutions/projects/1" class="text-green-600 hover:text-green-800 font-semibold">Details →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <img src="https://drawdown.org/sites/default/files/solutions2020/solution_alternativecement02.jpg" alt="Alternative Cement" class="rounded-t-lg object-cover h-48 w-full">
+        <div class="p-5">
+          <h2 class="text-xl font-bold text-gray-800">Alternative Cement</h2>
+          <p class="text-gray-600 mt-2">Reformulating cement can reduce millions of metric tons of emissions annually.</p>
+          <div class="mt-4 text-right">
+            <a href="/solutions/projects/2" class="text-green-600 hover:text-green-800 font-semibold">Details →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <img src="https://drawdown.org/sites/default/files/solutions2020/solution_bicycle_infrastructure.jpg" alt="Bicycle Infrastructure" class="rounded-t-lg object-cover h-48 w-full">
+        <div class="p-5">
+          <h2 class="text-xl font-bold text-gray-800">Bicycle Infrastructure</h2>
+          <p class="text-gray-600 mt-2">Better infrastructure encourages more cycling, reducing carbon footprints.</p>
+          <div class="mt-4 text-right">
+            <a href="/solutions/projects/3" class="text-green-600 hover:text-green-800 font-semibold">Details →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

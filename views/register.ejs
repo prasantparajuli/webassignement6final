@@ -1,0 +1,50 @@
+<%- include('partials/header', { page: "/register" }) %>
+
+<div class="container mx-auto p-6 max-w-lg">
+  <h2 class="text-3xl font-bold mb-6 text-center">Register</h2>
+
+  <% if (typeof successMessage !== 'undefined' && successMessage) { %>
+    <div class="alert alert-success mb-4 flex items-center gap-2">
+      <svg class="stroke-current shrink-0 h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      <span class="text-green-700 font-medium"><%= successMessage %></span>
+    </div>
+    <a href="/login" class="btn btn-success w-full">Proceed to Log in</a>
+  <% } else { %>
+    <form method="POST" action="/register" class="space-y-4">
+      <div>
+        <label for="userName" class="block text-sm font-medium text-gray-700">User Name</label>
+        <input id="userName" name="userName" type="text" required value="<%= typeof userName !== 'undefined' ? userName : '' %>" class="input input-bordered w-full mt-1" placeholder="Enter your username" />
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+        <input id="email" name="email" type="email" required value="<%= typeof email !== 'undefined' ? email : '' %>" class="input input-bordered w-full mt-1" placeholder="Enter your email" />
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input id="password" name="password" type="password" required class="input input-bordered w-full mt-1" placeholder="Enter your password" />
+      </div>
+
+      <div>
+        <label for="password2" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+        <input id="password2" name="password2" type="password" required class="input input-bordered w-full mt-1" placeholder="Confirm your password" />
+      </div>
+
+      <button type="submit" class="btn btn-primary w-full">Register</button>
+    </form>
+
+    <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+      <div class="alert alert-error mt-4 flex items-center gap-2">
+        <svg class="stroke-current shrink-0 h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span class="text-red-700 font-medium"><%= errorMessage %></span>
+      </div>
+    <% } %>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>

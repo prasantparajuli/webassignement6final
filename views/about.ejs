@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Climate Solutions</title>
+  <link href="/css/main.css" rel="stylesheet">
+</head>
+<body class="bg-base-200">
+
+  <%- include('partials/navbar', { page: '/about' }) %>
+
+  <div class="container mx-auto p-6">
+    <div class="hero bg-base-300 mb-8 rounded-lg">
+      <div class="hero-content text-center">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">About</h1>
+          <p class="py-6">All about me, this course, and my interests.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Profile" class="rounded-xl shadow-lg">
+      </div>
+      <div class="prose">
+        <p>Hi! I'm Abishek Adhikari, a student at Seneca Polytechnic. I’m currently studying CPP.</p>
+        <p>I'm passionate about building full-stack apps, solving real-world problems, and learning new technologies like Node.js, React, and Tailwind CSS. When I’m not coding, I do wildlife photography.</p>
+        <p>This site showcases some impactful climate solutions across various sectors.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

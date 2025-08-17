@@ -1,0 +1,63 @@
+<%- include('partials/header', { page: "/login" }) %>
+
+<div class="container mx-auto p-6 max-w-lg">
+  <h2 class="text-3xl font-bold mb-6 text-center">Login</h2>
+
+  <!-- Success Message -->
+  <% if (typeof successMessage !== 'undefined' && successMessage) { %>
+    <div class="alert alert-success mb-4 flex items-center gap-2">
+      <svg class="stroke-current shrink-0 h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m7 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      <span class="text-green-700 font-medium"><%= successMessage %></span>
+    </div>
+  <% } %>
+
+  <!-- Error Message -->
+  <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+    <div class="alert alert-error mb-4 flex items-center gap-2">
+      <svg class="stroke-current shrink-0 h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      <span class="text-red-700 font-medium"><%= errorMessage %></span>
+    </div>
+  <% } %>
+
+  <!-- Login Form -->
+  <form method="POST" action="/login" class="space-y-4">
+    <div>
+      <label for="userName" class="block text-sm font-medium text-gray-700">User Name</label>
+      <input
+        id="userName"
+        name="userName"
+        type="text"
+        required
+        value="<%= typeof userName !== 'undefined' ? userName : '' %>"
+        class="input input-bordered w-full mt-1"
+        placeholder="Enter your username"
+      />
+    </div>
+
+    <div>
+      <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        required
+        class="input input-bordered w-full mt-1"
+        placeholder="Enter your password"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary w-full">Login</button>
+  </form>
+
+  <!-- Optional: Link to Register -->
+  <p class="mt-6 text-center text-sm text-gray-600">
+    Don't have an account?
+    <a href="/register" class="text-blue-600 hover:underline">Register here</a>
+  </p>
+</div>
+
+<%- include('partials/footer') %>
